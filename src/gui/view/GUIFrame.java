@@ -6,7 +6,7 @@ import gui.controller.GUIController;
 /**
  * 
  * @author Zach moyes
- *
+ * 0.2 Nov 9, 2015 Updated setupFrame to load contentPane with a GUIPanel.
  */
 
 public class GUIFrame extends JFrame
@@ -23,10 +23,15 @@ public class GUIFrame extends JFrame
 	}
 	private void setupFrame()
 	{
-		this.setContentPane(basePanel); //Must be first line of setupFrame!
+		this.setContentPane(basePanel); //Must be first line of setupFrame! - Installs the panel in the frame.
 		this.setSize(400,400);		//Find a good size for the app.	
 		this.setResizable(false);	//Advisable not required.
 		this.setVisible(true);		//Must be last line of setupFrame!
+	}
+	
+	public GUIController getBaseController()
+	{
+		return baseController;
 	}
 
 }
