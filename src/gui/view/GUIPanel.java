@@ -43,6 +43,10 @@ public class GUIPanel extends JPanel
 	
 	private void setupLayout()
 	{
+		baseLayout.putConstraint(SpringLayout.WEST, firstButton, 81, SpringLayout.WEST, this);
+		baseLayout.putConstraint(SpringLayout.SOUTH, firstButton, -33, SpringLayout.SOUTH, this);
+		baseLayout.putConstraint(SpringLayout.NORTH, firstTextField, 39, SpringLayout.NORTH, this);
+		baseLayout.putConstraint(SpringLayout.EAST, firstTextField, -27, SpringLayout.EAST, this);
 		
 	}
 	
