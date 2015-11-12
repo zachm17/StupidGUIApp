@@ -5,6 +5,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SpringLayout; //For layout
 import gui.controller.GUIController;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  * 
@@ -52,8 +54,15 @@ public class GUIPanel extends JPanel
 	
 	private void setupListeners()
 	{
-		
+		firstButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				firstTextField.setText("Wow, this is the most amazing click event ever! WOW!");
+			}
+		});
 	}
+}
+	
 	
 
-}
