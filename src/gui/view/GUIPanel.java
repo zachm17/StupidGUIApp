@@ -112,8 +112,8 @@ public class GUIPanel extends JPanel
 						
 						firstTextField.setText("Mouse X: " + moved.getX() + " Mouse Y: " + moved.getY() );
 						
-						if((Math.abs(moved.getX() - firstButton.getX()) < 5) && 
-								(Math.abs(moved.getY() - firstButton.getY()) <5))
+						if((Math.abs(moved.getX() - firstButton.getX()) < 650) && 
+								(Math.abs(moved.getY() - firstButton.getY()) < 650))
 							
 						//if(moved.getY() >= (firstButton.getY() -5) && moved.getY() <= (firstButton.getHeight() +5) &&
 							//	moved.getX() >= (firstButton.getX() - 5) && moved.getX() <= (firstButton.getWidth() +5))
