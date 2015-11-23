@@ -64,6 +64,7 @@ public class GUIPanel extends JPanel
 	private void setupListeners()
 	{
 		firstButton.addActionListener(new ActionListener()
+		
 		{
 			public void actionPerformed(ActionEvent click)
 			{
@@ -80,7 +81,7 @@ public class GUIPanel extends JPanel
 			
 			public void mouseReleased(MouseEvent released)
 			{
-				
+				changeRandomColor();
 			}
 			
 			public void mousePressed(MouseEvent pressed)
@@ -90,18 +91,50 @@ public class GUIPanel extends JPanel
 			
 			public void mouseEntered(MouseEvent entered)
 			{
-				
+				changeRandomColor();
 			}
 			
 			public void mouseExited(MouseEvent exited)
 			{
-				
+				changeRandomColor();
 			}
+		});
+			
+			this.addMouseMotionListener(new MouseMotionListener()
+			{
+				
+					public void mouseMoved(MouseEvent moved)
+					{
+						if(moved.isAltDown())
+						{
+							changeRandomColor();
+						}
+						
+						firstTextField.setText("Mouse X: " + moved.getX() + " Mouse Y: " + moved.getY() );
+						
+						if((Math.abs(moved.getX() - firstButton.getX()) < 5) && 
+								(Math.abs(moved.getY() - firstButton.getY()) <5))
+							
+						//if(moved.getY() >= (firstButton.getY() -5) && moved.getY() <= (firstButton.getHeight() +5) &&
+							//	moved.getX() >= (firstButton.getX() - 5) && moved.getX() <= (firstButton.getWidth() +5))
+							
+						{
+							firstButton.setLocation((int) (Math.random() * 800 ), (int) (Math.random() * 800 ));
+						}
+						
+						
+					}
+					
+					public void mouseDragged(MouseEvent dragged)
+					{
+						
+					}
 			
 			
 		});
 	}
 }
+
 	
 	
 
