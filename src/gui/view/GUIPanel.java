@@ -1,12 +1,9 @@
 package gui.view;
-
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
-import javax.swing.SpringLayout; //For layout
+ 
+import javax.swing.*;  
 import gui.controller.GUIController;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.event.*;
+import java.awt.Color;
 
 /**
  * 
@@ -39,6 +36,7 @@ public class GUIPanel extends JPanel
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
+		this.setBackground(Color.MAGENTA);
 		this.add(firstButton);
 		this.add(firstTextField);
 	}
@@ -52,17 +50,91 @@ public class GUIPanel extends JPanel
 		
 	}
 	
+	private void changeRandomColor()
+	{
+		int red, green, blue;
+		
+		red = (int) (Math.random() * 256);
+		green = (int) (Math.random() * 256);
+		blue = (int) (Math.random() * 256);
+		
+		this.setBackground(new Color(red, green, blue));
+	}
+	
 	private void setupListeners()
 	{
 		firstButton.addActionListener(new ActionListener()
+		
 		{
 			public void actionPerformed(ActionEvent click)
 			{
 				firstTextField.setText("Wow, this is the most amazing click event ever! WOW!");
 			}
 		});
+		
+		this.addMouseListener(new MouseListener()
+		{
+			public void mouseClicked(MouseEvent click)
+			{
+				
+			}
+			
+			public void mouseReleased(MouseEvent released)
+			{
+				changeRandomColor();
+			}
+			
+			public void mousePressed(MouseEvent pressed)
+			{
+				
+			}
+			
+			public void mouseEntered(MouseEvent entered)
+			{
+				changeRandomColor();
+			}
+			
+			public void mouseExited(MouseEvent exited)
+			{
+				changeRandomColor();
+			}
+		});
+			
+			this.addMouseMotionListener(new MouseMotionListener()
+			{
+				
+					public void mouseMoved(MouseEvent moved)
+					{
+						if(moved.isAltDown())
+						{
+							changeRandomColor();
+						}
+						
+						firstTextField.setText("Mouse X: " + moved.getX() + " Mouse Y: " + moved.getY() );
+						
+						if((Math.abs(moved.getX() - firstButton.getX()) < 5) && 
+								(Math.abs(moved.getY() - firstButton.getY()) <5))
+							
+						//if(moved.getY() >= (firstButton.getY() -5) && moved.getY() <= (firstButton.getHeight() +5) &&
+							//	moved.getX() >= (firstButton.getX() - 5) && moved.getX() <= (firstButton.getWidth() +5))
+							
+						{
+							firstButton.setLocation((int) (Math.random() * 800 ), (int) (Math.random() * 800 ));
+						}
+						
+						
+					}
+					
+					public void mouseDragged(MouseEvent dragged)
+					{
+						
+					}
+			
+			
+		});
 	}
 }
+
 	
 	
 
